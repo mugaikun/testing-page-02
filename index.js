@@ -1,5 +1,7 @@
 const express = require("express");
 const { create } = require("express-handlebars");
+require("dotenv").config(); //lee variables de entorno ".env"
+require("./database/db"); // lee base de datos
 
 const app = express();
 const port = 3000;
@@ -47,6 +49,7 @@ app.use("/auth", require("./routes/auth"));
 // });
 
 /*  */
-app.listen(port, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
   console.log(`Example app listening on port ${port}!`);
 });
