@@ -1,4 +1,7 @@
+/**************** IMPORTS ************/
 const { URL } = require("url");
+
+/**************** VALIDAR URLS ************/
 const urlValidar = (req, res, next) => {
   try {
     const { origin } = req.body;
@@ -18,4 +21,5 @@ const urlValidar = (req, res, next) => {
   }
 };
 
+/**************** EXPORTS ************/
 module.exports = urlValidar;

@@ -1,6 +1,8 @@
+/**************** IMPORTS ************/
 const Url = require("../models/url");
 const { nanoid } = require("nanoid");
 
+/**************** LEER URLS ************/
 const leerUrls = async (req, res) => {
   // Simular desde base de datos
 
@@ -34,6 +36,7 @@ const leerUrls = async (req, res) => {
   */
 };
 
+/**************** AGREGAR URLS ************/
 const agregarUrl = async (req, res) => {
   const { origin } = req.body;
 
@@ -51,6 +54,7 @@ const agregarUrl = async (req, res) => {
   }
 };
 
+/**************** ELIMINAR URLS ************/
 const eliminarUrl = async (req, res) => {
   const { id } = req.params;
 
@@ -63,6 +67,7 @@ const eliminarUrl = async (req, res) => {
   }
 };
 
+/**************** EDITAR URL ************/
 const editarForm = async (req, res) => {
   const { id } = req.params;
   try {
@@ -81,19 +86,20 @@ const editarUrl = async (req, res) => {
   } catch (error) {}
 };
 
-const redireccionamiento = async (req, res) => {
-  const { shorUrl } = req.params;
-  try {
-    const urlDB = await Url.findOne({ shorUrl: shorUrl });
-    res.redirect(urlDB.origin);
-  } catch (error) {}
-};
+/**************** REDIRECCIONAR URL ************/
+// const redireccionamiento = async (req, res) => {
+//   const { shorUrl } = req.params;
+//   try {
+//     const urlDB = await Url.findOne({ shorUrl: shorUrl });
+//     res.redirect(urlDB.origin);
+//   } catch (error) {}
+// };
 
+/**************** EXPORTS ************/
 module.exports = {
   leerUrls,
   agregarUrl,
   eliminarUrl,
   editarForm,
   editarUrl,
-  redireccionamiento,
 };

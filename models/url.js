@@ -1,5 +1,8 @@
+/**************** IMPORTS ************/
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
+
+/**************** PLANTILLA ************/
 const urlSchema = new Schema({
   origin: {
     type: String,
@@ -14,4 +17,6 @@ const urlSchema = new Schema({
 });
 
 const Url = mongoose.model("Url", urlSchema);
+
+/**************** EXPORTS ************/
 module.exports = Url;
